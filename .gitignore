@@ -1,0 +1,45 @@
+# ─── App-specific ──────────────────────────────────────────
+# User's database file — contains private financial data
+arp_budget.db
+arp_budget.db-journal
+
+# User's saved settings
+arp_config.txt
+
+# Exported CSV files
+*.csv
+ARP_*
+
+# ─── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# ─── PyInstaller (for building .exe) ───────────────────────
+*.spec
+*.exe
+
+# ─── IDEs ──────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ─── OS ────────────────────────────────────────────────────
+Thumbs.db
+desktop.ini
