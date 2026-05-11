@@ -61,8 +61,11 @@ TOP_BG   = "#1E2A3A"
 # DB PATH
 # ═══════════════════════════════════════════════════════════════
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# DB_PATH candidates checked in order. First found wins.
+# Primary location: E:\TANMOY\ARP_Back_Up (hard drive backup folder)
 DB_PATH = None
 for _c in [
+    r"E:\TANMOY\ARP_Back_Up\arp_budget.db",
     os.path.join(SCRIPT_DIR, "arp_budget.db"),
     os.path.join(os.path.expanduser("~"), "Desktop", "arp_budget.db"),
 ]:
@@ -70,7 +73,12 @@ for _c in [
         DB_PATH = _c
         break
 if DB_PATH is None:
-    DB_PATH = os.path.join(SCRIPT_DIR, "arp_budget.db")
+    # If E: drive folder exists but no DB yet, create it there
+    primary_folder = r"E:\TANMOY\ARP_Back_Up"
+    if os.path.isdir(primary_folder):
+        DB_PATH = os.path.join(primary_folder, "arp_budget.db")
+    else:
+        DB_PATH = os.path.join(SCRIPT_DIR, "arp_budget.db")
 
 # ═══════════════════════════════════════════════════════════════
 # DATABASE
